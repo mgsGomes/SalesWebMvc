@@ -1,0 +1,27 @@
+﻿@model SalesWebMvc.Models.TipoImpedimento
+
+@{
+    ViewData["Title"] = "Excluir Tipo de Impedimento";
+}
+
+<h2>Excluir</h2>
+
+<h3>Você tem certeza que deseja excluir?</h3>
+<div>
+    <h4>Tipo de Impedimento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Impedimento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Impedimento)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Excluir" class="btn btn-default" /> |
+        <a asp-action="Index">Voltar</a>
+    </form>
+</div>
