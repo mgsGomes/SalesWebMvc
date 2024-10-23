@@ -18,5 +18,6 @@ namespace SalesWebMvc.Data
         public DbSet<SalesWebMvc.Models.Seller> Seller { get; set; }
         public DbSet<SalesWebMvc.Models.SalesRecord> SalesRecord { get; set; }
         public DbSet<SalesWebMvc.Models.Seles> Seles { get; set; }
+        public DbSet<SalesWebMvc.Models.TipoImpedimento> TipoImpedimento { get; set; }
     }
 }
