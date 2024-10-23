@@ -1,10 +1,9 @@
-﻿@model IEnumerable<IGrouping<Department, SalesRecord>>
+﻿@model SalesWebMvc.Models.ViewModels.GroupingSearchViewModel
 
 @{
     ViewData["Title"] = "Grouping Search";
     DateTime minDate = DateTime.Parse(ViewData["minDate"] as string);
-    DateTime maxDate = DateTime.Parse(ViewData["maxDate"] as string);
-
+    DateTime maxDate = DateTime.Parse(ViewData["maxDate"] as string);    
 }
 
 <h2>@ViewData["Title"]</h2>
@@ -21,13 +20,17 @@
                     <label for="maxDate">Max Date</label>
                     <input type="date" class="form-control" name="maxDate" value=@ViewData["maxDate"]>
                 </div>
+                <div class="form-group">
+                    <label for="departmentId">Department</label>
+                    <select name="departmentId" asp-items="@(new SelectList(Model.Departments, "Id", "Name", Model.SelectedDepartmentId))" class="form-control"></select>
+                </div>
             </div>
             <button type="submit" class="btn btn-primary">Filter</button>
         </form>
     </div>
 </nav>
 
-@foreach (var departmentGroup in Model)
+@foreach (var departmentGroup in Model.GroupedSalesRecords)
 {
     <div class="panel panel-primary">
         <div class="panel-heading">

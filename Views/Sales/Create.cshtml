@@ -1,0 +1,46 @@
+﻿@model SalesWebMvc.Models.ViewModels.SalesViewModel
+
+@{
+    ViewData["Title"] = "Sales";
+}
+
+<h2> @ViewData["Title"]</h2>
+
+<hr />
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label asp-for="Seles.SellerId" class="control-label"></label>
+                <select asp-for="Seles.SellerId" asp-items="@(new SelectList(Model.Sellers, "Id", "Nome"))" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Seles.DateSeles" class="control-label"></label>
+                <input asp-for="Seles.DateSeles" class="form-control" />
+                <span asp-validation-for="Seles.DateSeles" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Seles.Amount" class="control-label"></label>
+                <input asp-for="Seles.Amount" class="form-control" />
+                <span asp-validation-for="Seles.Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Seles.DepartmentId" class="control-label"></label>
+                <select asp-for="Seles.DepartmentId" asp-items="@(new SelectList(Model.Departments, "Id", "Name"))" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Seles.Status" class="control-label"></label>
+                <select asp-for="Seles.Status" asp-items="@(Model.Status)" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
