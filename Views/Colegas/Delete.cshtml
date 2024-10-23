@@ -1,0 +1,27 @@
+﻿@model SalesWebMvc.Models.Colega
+
+@{
+    ViewData["Title"] = "Excluir Colega";
+}
+
+<h2>Excluir</h2>
+
+<h3>Você tem certeza que deseja excluir?</h3>
+<div>
+    <h4>Colega</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Excluir" class="btn btn-default" /> |
+        <a asp-action="Index">Voltar</a>
+    </form>
+</div>
